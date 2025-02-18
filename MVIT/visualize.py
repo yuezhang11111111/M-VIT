@@ -15,7 +15,7 @@ def attention_map(model, image):
         image: An image for which we will compute the attention map.
     """
     img_height, img_width = model.input_shape[1], model.input_shape[2]
-    # 确保model.layers[5]不是None
+   
     if model.layers[5] is not None:
        print(model.layers[6])
     else:
@@ -59,7 +59,7 @@ def attention_map(model, image):
         ..., np.newaxis
     ]
 
-    # # 彩色注意力图
+    # # color att map
     # #mask = cv2.applyColorMap(mask, cv2.COLORMAP_JET)
     # #mask = (mask - mask.min()) / (mask.max() - mask.min())
     # #mask=np.squeeze(mask)
