@@ -21,7 +21,7 @@ def svs_to_path(input_folder,output_folder):
 
         highth = 20000
         width = 20000
-        data_gen = DeepZoomGenerator(slide, tile_size=highth, overlap=0, limit_bounds=False) #读取金字塔层数和所有块数
+        data_gen = DeepZoomGenerator(slide, tile_size=highth, overlap=0, limit_bounds=False) 
         print(data_gen.tile_count)
         print(data_gen.level_count)
         m=data_gen.level_count-1
@@ -45,8 +45,8 @@ def svs_to_path(input_folder,output_folder):
                 break
             for j in range(num_h):
 
-                img = np.array(data_gen.get_tile(m, (i, j)))  # 切图
-                np.save(os.path.join(result_path, svs_file + '_' + str(i) + '_' + str(j)), img)  # 保存图像
+                img = np.array(data_gen.get_tile(m, (i, j))) 
+                np.save(os.path.join(result_path, svs_file + '_' + str(i) + '_' + str(j)), img)  
 
 
 
@@ -55,7 +55,7 @@ def svs_to_path(input_folder,output_folder):
     print("Conversion completed!")
 
 
-input_folder="/media/ubuntu/1276A91876A8FD9B/zy/胰腺癌测试集"
+input_folder="/media/ubuntu/1276A91876A8FD9B/zy/test"
 output_folder="/media/ubuntu/1276A91876A8FD9B/zy/panwsi_path"
 
 svs_to_path(input_folder,output_folder)
