@@ -41,14 +41,14 @@ for svs_file in svs_files:
     # Otsu thresholding and mask generation
     ret, thresh_otsu = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
     min_size=10
-    # 删除小的组织区域
+  
     thresh_otsu = remove_small_hole(thresh_otsu, min_size * 4)
     thresh_otsu = 255 - thresh_otsu
-    # 删除小的空白区域
+
     thresh_otsu = remove_small_hole(thresh_otsu, min_size)
 
-    #闭运算：先膨胀后腐蚀  开运算：先腐蚀后膨胀
-    kernel = np.ones((100, 100), np.uint8)#巻积核大小
+    
+    kernel = np.ones((100, 100), np.uint8)
     thresh_otsu = cv2.morphologyEx(thresh_otsu, cv2.MORPH_CLOSE, kernel)
     thresh_otsu = cv2.morphologyEx(thresh_otsu, cv2.MORPH_OPEN, kernel)
     output_folder='/media/ubuntu/1276A91876A8FD9B/zy/mask'
