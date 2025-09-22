@@ -11,7 +11,7 @@ model = mvit.vit_b16(
     classes=1,
     activation=None,
     include_top=True,
-    pretrained=True,
+    pretrained=False,
     pretrained_top=False)
 
 model.load_weights('best_model1.h5')
